@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:          #060a14;
+  --surface:     #0d1526;
+  --surface-hi:  #131e35;
+  --border:      #1a2744;
+  --border-hi:   #243659;
+  --amber:       #f59e0b;
+  --amber-dim:   #92610a;
+  --sky:         #38bdf8;
+  --text:        #cbd5e1;
+  --text-dim:    #4a5e7a;
+  --low:         #22c55e;
+  --medium:      #eab308;
+  --high:        #f97316;
+  --critical:    #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Scan line ambient animation on the page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(56, 189, 248, 0.012) 2px,
+    rgba(56, 189, 248, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Drop zone */
+.drop-zone {
+  border: 1.5px dashed var(--border-hi);
+  transition: border-color 0.2s, background 0.2s;
+}
+.drop-zone.drag-over {
+  border-color: var(--amber);
+  background: rgba(245, 158, 11, 0.05);
+}
+
+/* Risk gauge arc */
+.gauge-track { stroke: var(--surface-hi); }
+
+/* Pipeline connector */
+.pipeline-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-hi), transparent);
+  flex: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 3px; }
