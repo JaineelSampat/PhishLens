@@ -15,7 +15,7 @@ Detects phishing in screenshots using a 4-stage AI pipeline:
 
 ### High Risk — Fake IBM Internship Phishing Email (Score: 80/100)
 
-![PhishLens High Risk Demo](screenshots/demo_high.jpeg)
+![PhishLens High Risk Demo](screenshots/demo_low.jpeg)
 
 A Gmail screenshot flagged as **High risk** with a score of 80/100. The email impersonates an IBM Summer Internship Program targeting VIT students, using urgency language ("LAST CALL"), exclusivity cues ("Exclusive Opportunity for VIT Students"), and a suspicious sender domain. PhishLens correctly identified the social engineering tactics and recommended not engaging with the email and reporting it to the IT department.
 
@@ -23,7 +23,7 @@ A Gmail screenshot flagged as **High risk** with a score of 80/100. The email im
 
 ### Low Risk — Legitimate Mercedes-Benz Apprenticeship Email (Score: 20/100)
 
-![PhishLens Low Risk Demo](screenshots/demo_low.jpeg)
+![PhishLens Low Risk Demo](screenshots/demo_high.jpeg)
 
 A Gmail screenshot rated **Low risk** with a score of 20/100. The email is a legitimate communication from Mercedes-Benz Research & Development India via the VITIANS CDC Group regarding an Apprentice Program 2026. No suspicious URLs, no requests for sensitive information, and no urgency manipulation detected. PhishLens correctly cleared it while still advising to verify authenticity before taking action — appropriate caution for any unsolicited email.
 
