@@ -11,6 +11,24 @@ Detects phishing in screenshots using a 4-stage AI pipeline:
 
 ---
 
+## Demo
+
+### High Risk — Fake IBM Internship Phishing Email (Score: 80/100)
+
+![PhishLens High Risk Demo](screenshots/demo_high.jpeg)
+
+A Gmail screenshot flagged as **High risk** with a score of 80/100. The email impersonates an IBM Summer Internship Program targeting VIT students, using urgency language ("LAST CALL"), exclusivity cues ("Exclusive Opportunity for VIT Students"), and a suspicious sender domain. PhishLens correctly identified the social engineering tactics and recommended not engaging with the email and reporting it to the IT department.
+
+---
+
+### Low Risk — Legitimate Mercedes-Benz Apprenticeship Email (Score: 20/100)
+
+![PhishLens Low Risk Demo](screenshots/demo_low.jpeg)
+
+A Gmail screenshot rated **Low risk** with a score of 20/100. The email is a legitimate communication from Mercedes-Benz Research & Development India via the VITIANS CDC Group regarding an Apprentice Program 2026. No suspicious URLs, no requests for sensitive information, and no urgency manipulation detected. PhishLens correctly cleared it while still advising to verify authenticity before taking action — appropriate caution for any unsolicited email.
+
+---
+
 ## Setup
 
 ### 1. Clone & create `.env`
@@ -25,7 +43,7 @@ Get your keys:
 ### 2. Backend
 ```bash
 python -m venv venv
-venv\Scripts\activate        # Windows
+venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
@@ -41,13 +59,13 @@ Open http://localhost:5173
 
 ---
 
-## How it works
+## How It Works
 
-1. Upload a suspicious email / webpage screenshot
-2. BLIP generates a visual description of the layout and visual cues
-3. EasyOCR extracts all visible text including URLs, sender info, CTAs
-4. Extracted URLs are submitted to VirusTotal for reputation check
-5. All signals fed to LLaMA-3 via Groq for a structured threat report:
+1. Upload a suspicious email or webpage screenshot
+2. **BLIP** generates a visual description of the layout, logos, and visual cues
+3. **EasyOCR** extracts all visible text including URLs, sender info, and CTAs
+4. Extracted URLs are submitted to **VirusTotal** for reputation checking
+5. All signals are fed to **LLaMA-3.3-70B via Groq** for a structured threat report:
    - Risk score (0–100)
    - Risk level (Low / Medium / High / Critical)
    - Specific phishing indicators detected
@@ -61,6 +79,15 @@ Open http://localhost:5173
 **Frontend:** React · Vite · Tailwind CSS
 
 ---
+
+## Evaluation
+
+To benchmark against real phishing data:
+1. Download samples from [PhishTank](https://phishtank.org/developer_info.php) (free CSV)
+2. Take screenshots of flagged URLs
+3. Run through the `/analyze` endpoint
+4. Log `risk_score` and `risk_level` against known labels
+5. Compute precision / recall
 
 ## Evaluation
 
