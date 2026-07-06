@@ -89,11 +89,3 @@ To benchmark against real phishing data:
 4. Log `risk_score` and `risk_level` against known labels
 5. Compute precision / recall
 
-## Evaluation
-
-To benchmark against real phishing data:
-1. Download samples from [PhishTank](https://phishtank.org/developer_info.php) (free CSV)
-2. Take screenshots of flagged URLs
-3. Run through `/analyze` endpoint
-4. Log `risk_score` and `risk_level` against known labels
-5. Compute precision / recall
